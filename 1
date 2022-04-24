@@ -1,0 +1,103 @@
+#12 f
+#11 s
+
+class Matrix:
+    """dostring"""
+
+    def __init__(self, x, y):
+        """Constructor"""
+        self.x = x
+        self.y = y
+        self.matr = [[1]*y] * x
+
+
+def get_input():
+    while True:
+        try:
+            return int(input("X:"))
+        except Valueint as exc:
+            print("Not int")
+
+
+def print_output(y):
+    print(f"{y}")
+
+
+def printmatr(matr, x ,y):
+    for i in range(0, x):
+        for j in range(0, y):
+            print(f"{matr[i][j]} ", end = "")
+        print()
+
+
+def izmenenie(matrx, newY, newX):
+    oldX = matrx.x
+    oldY = matrx.y
+    newmatr = matrx.matr
+    x = newX
+    y = newY
+    if (oldX < x):
+        nX = x - oldX
+        for i in range(0, nX):
+            newmatr.append([0] * x)
+    else:
+        nX = oldX - x
+        for j in range (1, nX + 1):
+            del newmatr[oldX-nX]
+    if (oldY < y):
+        nY = y - oldY
+        for i in range(0, nY):
+            newmatr[i].append(0)
+    else:
+        nY = oldY - y
+        for j in range(0, nY):
+            del newmatr[j][oldY-j-1]
+    matrx.x = x
+    matrx.y = y
+    matrx.matr = newmatr
+    return matrx
+
+
+def podmatr(matrx, x, y):
+    for i in range(0, x):
+        for j in range(0, y):
+            print(f"{matrx[i][j]} ", end = "")
+        print()
+
+    
+def main():
+    while True:
+
+        print("1. Создание матрицы")
+        print("2. Просмотр матрицы")
+        print("3. Изменение размерности матрицы")
+        print("4. Методы класса")
+        print("5. Вывод подматрицы")
+        print("0. Выход")
+
+        cmd = input("Выберите пункт: ")
+        if cmd == "1":
+            x = get_input() 
+            y = get_input() 
+            matrx = Matrix(x, y)
+        elif cmd == "2":
+            printmatr(matrx.matr, matrx.x, matrx.y)
+        elif cmd == "3":
+            x = get_input() 
+            y = get_input() 
+            matrx = izmenenie(matrx, x, y)
+            printmatr(matrx.matr, matrx.x, matrx.y)            
+        elif cmd == "4":
+            print(dir(matrx))
+        elif cmd == "5":
+            x = get_input() 
+            y = get_input() 
+            podmatr(matrx.matr, x, y)
+        elif cmd == "0":
+            break
+        else:
+            print("Вы ввели не правильное значение")
+
+
+if __name__ == "__main__":
+    main()
