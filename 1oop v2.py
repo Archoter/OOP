@@ -8,7 +8,7 @@ class Matrix:
         """Constructor"""
         self.x = x
         self.y = y
-        self.matr = [[1]*x] * y
+        self.matr = [[1]*y] * x
 
 
     def printmatr(self):
