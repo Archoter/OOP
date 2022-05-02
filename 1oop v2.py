@@ -8,15 +8,13 @@ class Matrix:
         """Constructor"""
         self.x = x
         self.y = y
-        self.matr = [[1]*y] * x
-
+        self.matr = [[1]*x] * y
 
     def printmatr(self):
         for i in range(0, self.x):
             for j in range(0, self.y):
                 print(f"{self.matr[i][j]} ", end = "")
             print()
-
 
     def izmenenie(self, newY, newX):
         oldX = self.x
@@ -52,6 +50,7 @@ class Matrix:
 
 
 
+
 def get_input():
     while True:
         try:
@@ -63,8 +62,6 @@ def get_input():
 def print_output(y):
     print(f"{y}")
 
-    
-    
     
 def main():
     while True:
